@@ -15,6 +15,9 @@ https://claude.ai/code/artifact/471b9833-5dcf-4cb9-8464-cf2572b0ec4a
 
 `index.html` — 依照 `名單.txt` 的人名產生轉盤，用法與「今天喝什麼」相同，按下中間按鈕即可抽出天選之人，並保留每次抽選的歷史紀錄。
 
+線上網址（免登入、免安裝，任何人都能直接使用）：
+https://claude.ai/code/artifact/1e5d7841-caef-476d-a632-1364c776c335
+
 ## 檔案說明
 
 | 檔案 | 用途 |
