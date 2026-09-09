@@ -133,76 +133,9 @@
     gap: 1.5rem;
   }
 
-  .field label {
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .field .hint {
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-
-  textarea#nameInput {
-    width: 100%;
-    min-height: 168px;
-    resize: vertical;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 0.65rem 0.75rem;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text);
-  }
-
-  textarea#nameInput:focus-visible,
   button:focus-visible {
     outline: 2px solid var(--accent-2);
     outline-offset: 2px;
-  }
-
-  .btn {
-    appearance: none;
-    border: none;
-    border-radius: 10px;
-    padding: 0.7rem 1rem;
-    font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
-  }
-
-  .btn:active { transform: translateY(1px); }
-  .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--accent-ink);
-    width: 100%;
-  }
-
-  .btn-primary:not(:disabled):hover { box-shadow: 0 8px 20px -10px var(--accent); }
-
-  .error-msg {
-    font-size: 0.8rem;
-    color: var(--accent-2);
-    font-weight: 600;
-    min-height: 1.1em;
-  }
-
-  .divider {
-    height: 1px;
-    background: var(--border);
-    border: none;
-    margin: 0;
   }
 
   .history h2 {
@@ -461,24 +394,7 @@
   </header>
 
   <main>
-    <section class="panel" aria-label="名單設定">
-      <div class="field">
-        <label for="nameInput">名單（每行一位）</label>
-        <textarea id="nameInput" spellcheck="false">穎
-靜
-勳
-霖
-榆
-惠
-妤
-蓉</textarea>
-        <p class="error-msg" id="errMsg" role="alert"></p>
-        <p class="hint">預設載入資料夾內名單.txt 的名單，也可以直接在這裡增刪修改，再按「產生轉盤」套用。</p>
-        <button class="btn btn-primary" id="genBtn" style="margin-top: 0.75rem;">產生轉盤</button>
-      </div>
-
-      <hr class="divider" />
-
+    <section class="panel" aria-label="抽選紀錄">
       <div class="history">
         <h2>抽選紀錄</h2>
         <ol id="historyList"></ol>
@@ -522,10 +438,7 @@
   var SVG_NS = 'http://www.w3.org/2000/svg';
 
   var wheelGroup = document.getElementById('wheelGroup');
-  var nameInput = document.getElementById('nameInput');
-  var genBtn = document.getElementById('genBtn');
   var spinBtn = document.getElementById('spinBtn');
-  var errMsg = document.getElementById('errMsg');
   var resultValue = document.getElementById('resultValue');
   var historyList = document.getElementById('historyList');
   var confettiLayer = document.getElementById('confettiLayer');
@@ -542,12 +455,6 @@
   function polarToXY(angleDeg, r) {
     var rad = (angleDeg - 90) * Math.PI / 180;
     return { x: CENTER + r * Math.cos(rad), y: CENTER + r * Math.sin(rad) };
-  }
-
-  function parseNames(raw) {
-    return raw.split('\n')
-      .map(function (line) { return line.replace(/^\s*\d+[.\t、]?\s*/, '').trim(); })
-      .filter(function (line) { return line.length > 0; });
   }
 
   function buildWheel(list) {
@@ -685,27 +592,10 @@
     });
   }
 
-  function generate() {
-    var list = parseNames(nameInput.value);
-    if (list.length < 2) {
-      errMsg.textContent = '請至少輸入 2 個名字（每行一個）。';
-      return;
-    }
-    if (list.length > 40) {
-      errMsg.textContent = '名字最多 40 個，太多會擠不下。';
-      return;
-    }
-    errMsg.textContent = '';
-    buildWheel(list);
-    history = [];
-    renderHistory();
-  }
-
   function spin() {
     if (spinning || segmentCount < 2) return;
     spinning = true;
     spinBtn.disabled = true;
-    genBtn.disabled = true;
 
     var targetIndex = Math.floor(Math.random() * segmentCount);
     var jitter = (Math.random() * 2 - 1) * (segAngle * 0.5 * 0.7);
@@ -722,7 +612,6 @@
     window.setTimeout(function () {
       spinning = false;
       spinBtn.disabled = false;
-      genBtn.disabled = false;
 
       resultValue.textContent = names[targetIndex];
       resultValue.className = 'value';
@@ -738,10 +627,8 @@
     }, duration);
   }
 
-  genBtn.addEventListener('click', generate);
   spinBtn.addEventListener('click', spin);
 
-  nameInput.value = DEFAULT_NAMES.join('\n');
   buildWheel(DEFAULT_NAMES);
   renderHistory();
 })();
