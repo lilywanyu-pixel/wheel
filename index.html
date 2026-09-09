@@ -243,15 +243,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 24%;
+    width: 26%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     border: 3px solid var(--bg);
     background: var(--accent-2);
     color: #fff8f5;
-    font-family: "Bricolage Grotesque", sans-serif;
-    font-weight: 800;
-    font-size: clamp(0.85rem, 2.4vw, 1.05rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    line-height: 1;
     cursor: pointer;
     z-index: 2;
     box-shadow: 0 10px 18px -8px rgba(0,0,0,0.45);
@@ -408,7 +410,7 @@
         <svg id="wheelSvg" viewBox="0 0 400 400" role="img" aria-label="天選之人轉盤">
           <g id="wheelGroup"></g>
         </svg>
-        <button class="hub-btn" id="spinBtn" aria-label="開始轉動轉盤">天選！</button>
+        <button class="hub-btn" id="spinBtn" aria-label="開始轉動轉盤">😇</button>
       </div>
 
       <div class="result">
