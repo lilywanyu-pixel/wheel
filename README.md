@@ -9,14 +9,14 @@
 名單直接寫死在頁面裡（查有此人、日丈五、mr. whish、迷客夏、雙十八木、先喝道、上宇林、萬波），要換店家請直接修改 `飲料店.txt` 後請 Claude 重新產生頁面；頁面本身不提供編輯名單的介面。
 
 線上網址（免登入、免安裝，任何人都能直接使用）：
-https://claude.ai/code/artifact/471b9833-5dcf-4cb9-8464-cf2572b0ec4a
+https://lilywanyu-pixel.github.io/wheel/今天喝什麼.html
 
 ## 天選之人
 
 `index.html` — 依照 `名單.txt` 的人名產生轉盤，用法與「今天喝什麼」相同，按下中間按鈕即可抽出天選之人，並保留每次抽選的歷史紀錄。
 
 線上網址（免登入、免安裝，任何人都能直接使用）：
-https://claude.ai/code/artifact/1e5d7841-caef-476d-a632-1364c776c335
+https://lilywanyu-pixel.github.io/wheel/
 
 ## 晚餐吃什麼
 
@@ -25,7 +25,7 @@ https://claude.ai/code/artifact/1e5d7841-caef-476d-a632-1364c776c335
 選項直接寫死在頁面裡（滷味、大拇哥鍋燒、芳津素食、八方雲集、三媽臭臭鍋、越南料理、健康餐盒、日式料理、鏘鏘鏘、佑丞、清華鴨肉麵、烤肉配泡麵、土魠魚羹），要換選項請直接修改 `晚餐.txt` 後請 Claude 重新產生頁面；頁面本身不提供編輯選項的介面。
 
 線上網址（免登入、免安裝，任何人都能直接使用）：
-https://claude.ai/code/artifact/9d503694-246b-4d82-8e8e-aa2ed8f3b9d9
+https://lilywanyu-pixel.github.io/wheel/晚餐吃什麼.html
 
 ## 檔案說明
 
