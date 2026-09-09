@@ -31,6 +31,7 @@
     --seg-10: #3f6b52; --seg-10-ink: #eef6f4;
     --seg-11: #8a6ba3; --seg-11-ink: #f3ecf5;
     --seg-12: #c9a227; --seg-12-ink: #22281c;
+    --seg-13: #a35f7a; --seg-13-ink: #f3ecf5;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -470,18 +471,19 @@
     <section class="panel" aria-label="晚餐選項設定">
       <div class="field">
         <label for="nameInput">晚餐選項（每行一個）</label>
-        <textarea id="nameInput" spellcheck="false">鹽水日式滷味
+        <textarea id="nameInput" spellcheck="false">滷味
 大拇哥鍋燒
 芳津素食
 八方雲集
 三媽臭臭鍋
-御的食越南料理
+越南料理
 健康餐盒
-樸拾日式料理
+日式料理
 鏘鏘鏘
 佑丞
 清華鴨肉麵
-烤肉配泡麵</textarea>
+烤肉配泡麵
+土魠魚羹</textarea>
         <p class="error-msg" id="errMsg" role="alert"></p>
         <p class="hint">選項已經預先放好，可以直接轉；也能在這裡增刪修改，再按「產生轉盤」套用新內容。</p>
         <button class="btn btn-primary" id="genBtn" style="margin-top: 0.75rem;">產生轉盤</button>
@@ -522,7 +524,7 @@
 <script>
 (function () {
   var CENTER = 200, RADIUS = 188;
-  var DEFAULT_DINNERS = ['鹽水日式滷味', '大拇哥鍋燒', '芳津素食', '八方雲集', '三媽臭臭鍋', '御的食越南料理', '健康餐盒', '樸拾日式料理', '鏘鏘鏘', '佑丞', '清華鴨肉麵', '烤肉配泡麵'];
+  var DEFAULT_DINNERS = ['滷味', '大拇哥鍋燒', '芳津素食', '八方雲集', '三媽臭臭鍋', '越南料理', '健康餐盒', '日式料理', '鏘鏘鏘', '佑丞', '清華鴨肉麵', '烤肉配泡麵', '土魠魚羹'];
   var SEGMENT_COLORS = [
     { fill: 'var(--seg-1)', ink: 'var(--seg-1-ink)' },
     { fill: 'var(--seg-2)', ink: 'var(--seg-2-ink)' },
@@ -535,7 +537,8 @@
     { fill: 'var(--seg-9)', ink: 'var(--seg-9-ink)' },
     { fill: 'var(--seg-10)', ink: 'var(--seg-10-ink)' },
     { fill: 'var(--seg-11)', ink: 'var(--seg-11-ink)' },
-    { fill: 'var(--seg-12)', ink: 'var(--seg-12-ink)' }
+    { fill: 'var(--seg-12)', ink: 'var(--seg-12-ink)' },
+    { fill: 'var(--seg-13)', ink: 'var(--seg-13-ink)' }
   ];
   var SVG_NS = 'http://www.w3.org/2000/svg';
 
